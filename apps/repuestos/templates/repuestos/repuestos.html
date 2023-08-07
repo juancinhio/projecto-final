@@ -1,0 +1,55 @@
+{% extends 'repuestos/index.html' %}
+<!DOCTYPE html>
+{% block INDEX_CONTENIDO %}
+<html>
+<head>
+    <title>Selector Booleano</title>
+</head>
+<body>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="afinacion">Afinacion:</label>
+        <input type="checkbox" id="afinacion" name="afinacion" value="afinacion">
+        <br>
+        <label for="afinacion">Frenos:</label>
+        <input type="checkbox" id="frenos" name="frenos" value="frenos">
+        <br>
+        <label for="afinacion">Suspencion:</label>
+        <input type="checkbox" id="suspencion" name="suspencion" value="suspencion">
+        <br>
+        <label for="afinacion">Service:</label>
+        <input type="checkbox" id="service" name="service" value="service">
+        <br>
+        <label for="afinacion">Embrague:</label>
+        <input type="checkbox" id="embrague" name="embrague" value="embrague">
+        <br>
+        <label for="afinacion">Distribucion:</label>
+        <input type="checkbox" id="distribucion" name="distribucion" value="distribucion">
+        <br>
+        <label for="afinacion">Circuito Refrigerante:</label>
+        <input type="checkbox" id="circuito_refrigerante" name="circuito_refrigerante" value="circuito_refrigerante">
+        <br>
+        <label for="afinacion">Electricidad:</label>
+        <input type="checkbox" id="electricidad" name="electricidad" value="electricidad">
+        <br>
+        <label for="afinacion">Motor:</label>
+        <input type="checkbox" id="motor" name="motor" value="motor">
+        <br>
+        <label for="afinacion">Otro:</label>
+        <input type="checkbox" id="otro" name="otro" value="otro">
+        <br>
+        
+       
+        
+        <button type="submit">Enviar</button>
+    </form>
+
+    <a href="{% url 'home:home' %}">Ir al menú principal</a>
+
+</body>
+</html>
+
+
+{% endblock INDEX_CONTENIDO %}

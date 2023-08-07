@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'vehiculo',
     'cliente',
     'altaVehiculo',
+    'repuestos',
 
 ]
 

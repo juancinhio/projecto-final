@@ -11,7 +11,7 @@ from django.views.generic import (
     UpdateView,
     FormView
 )
-
+from django.core.paginator import Paginator, Page
 
 
 class AltaVehiculoCreate(FormView):
@@ -63,6 +63,7 @@ class AltaVehiculoDetail(DetailView):
 class AltaVehiculoList(ListView):
     model=AltaVehiculo
     template_name="altaVehiculo/alta_vehiculo_list.html"
+    context_object_name = "object_list"
 
     def get_queryset(self):
         query = self.request.GET.get('q')
@@ -76,3 +77,10 @@ class AltaVehiculoList(ListView):
                 Q(vehiculo_id__modelo__icontains=query)
             )
         return AltaVehiculo.objects.all()
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        paginator = Paginator(context[self.context_object_name], 5)  # Mostrar 5 registros por página
+        page_number = self.request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        context['object_list'] = page_obj
+        return context
